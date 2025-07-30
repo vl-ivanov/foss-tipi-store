@@ -21,7 +21,7 @@
       "label": "GitHub OAuth Client ID",
       "max": 50,
       "min": 3,
-      "required": true,
+      "required": false,
       "env_variable": "TABBYWEB_GITHUB_KEY"
     },
     {
@@ -29,7 +29,7 @@
       "label": "GitHub OAuth Client Secret",
       "max": 50,
       "min": 3,
-      "required": true,
+      "required": false,
       "env_variable": "TABBYWEB_GITHUB_SECRET"
     },
     {
@@ -37,7 +37,7 @@
       "label": "GitLab OAuth Client ID",
       "max": 50,
       "min": 3,
-      "required": true,
+      "required": false,
       "env_variable": "TABBYWEB_GITLAB_KEY"
     },
     {
@@ -45,7 +45,7 @@
       "label": "GitLab OAuth Client Secret",
       "max": 50,
       "min": 3,
-      "required": true,
+      "required": false,
       "env_variable": "TABBYWEB_GITLAB_SECRET"
     },
     {
@@ -53,7 +53,7 @@
       "label": "Google OAuth Client ID",
       "max": 50,
       "min": 3,
-      "required": true,
+      "required": false,
       "env_variable": "TABBYWEB_GOOGLE_OAUTH2_KEY"
     },
     {
@@ -61,8 +61,32 @@
       "label": "Google OAuth Client Secret",
       "max": 50,
       "min": 3,
-      "required": true,
+      "required": false,
       "env_variable": "TABBYWEB_GOOGLE_OAUTH2_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "Microsoft Graph Client ID",
+      "max": 50,
+      "min": 3,
+      "required": false,
+      "env_variable": "TABBYWEB_MICROSOFT_GRAPH_KEY"
+    },
+    {
+      "type": "password",
+      "label": "Microsoft Graph Client Secret",
+      "max": 50,
+      "min": 3,
+      "required": false,
+      "env_variable": "TABBYWEB_MICROSOFT_GRAPH_SECRET"
+    },
+    {
+      "type": "password",
+      "label": "Database Password",
+      "max": 50,
+      "min": 3,
+      "required": false,
+      "env_variable": "TABBYWEB_DB_PASSWORD"
     }
   ]
 }
