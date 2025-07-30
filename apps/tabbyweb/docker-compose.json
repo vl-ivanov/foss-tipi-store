@@ -4,10 +4,10 @@
       "name": "tabby",
       "image": "stz184/tabbyweb:28.07.2025",
       "environment": {
-        "DATABASE_URL": "mysql://root:$$TABBYWEB_DB_PASSWORD@db/tabby",
+        "DATABASE_URL": "mysql://tabbyuser:${TABBYWEB_DB_PASSWORD}@tabbyweb-db/tabby",
         "PORT": "9090",
         "DEBUG": "False",
-        "DOCKERIZE_ARGS": "\"-wait tcp://db:3306 -timeout 60s\"",
+        "DOCKERIZE_ARGS": "\"-wait tcp://tabbyweb-db:3306 -timeout 60s\"",
         "SOCIAL_AUTH_GITHUB_KEY": "${TABBYWEB_GITHUB_KEY:-}",
         "SOCIAL_AUTH_GITHUB_SECRET": "${TABBYWEB_GITHUB_SECRET:-}",
         "SOCIAL_AUTH_GITLAB_KEY": "${TABBYWEB_GITLAB_KEY:-}",
@@ -18,21 +18,35 @@
         "SOCIAL_AUTH_MICROSOFT_GRAPH_SECRET": "${TABBYWEB_MICROSOFT_GRAPH_SECRET:-}"
       },
       "internalPort": 9090,
+      "isMain": true,
       "dependsOn": {
-        "db": {
+        "tabbyweb-db": {
           "condition": "service_started"
         }
       }
     },
     {
-      "name": "db",
+      "name": "tabbyweb-db",
       "image": "mariadb:10.7.1",
       "environment": {
         "MARIADB_DATABASE": "tabby",
-        "MARIADB_USER": "user",
+        "MARIADB_USER": "tabbyuser",
         "MARIADB_PASSWORD": "${TABBYWEB_DB_PASSWORD}",
         "MYSQL_ROOT_PASSWORD": "${TABBYWEB_DB_PASSWORD}"
-      }
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/mysql"
+        }
+      ],
+      "command": [
+        "mysqld",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+        "--wait_timeout=28800",
+        "--log-warnings=0"
+      ]
     }
   ]
 }
