@@ -4,6 +4,7 @@
       "name": "beszel",
       "image": "henrygd/beszel:latest",
       "internalPort": 8090,
+      "isMain": true,
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/socket/beszel_data",
@@ -26,7 +27,7 @@
       "image": "henrygd/beszel-agent:latest",
       "environment": {
         "LISTEN": "/beszel_socket/beszel.sock",
-        "HUB_URL": "http://127.0.0.1:${APP_PORT}",
+        "HUB_URL": "http://localhost:${APP_PORT}",
         "TOKEN": "hjTDJBDZDDljOUbBMhdO",
         "KEY": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHhPrH2XwmBRjheNX2HrlXy9HSN5KNLabbdJA8KqITSI"
       },
