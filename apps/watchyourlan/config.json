@@ -1,0 +1,38 @@
+{
+  "name": "WatchYourLAN",
+  "id": "watchyourlan",
+  "available": true,
+  "short_desc": "Lightweight network IP scanner with web GUI.",
+  "author": "Andrew Erlikh",
+  "port": 8840,
+  "categories": ["utilities"],
+  "description": "Features: \nSend notification when new host is found\n\nMonitor hosts online/offline history\nKeep a list of all hosts in the network\nSend data to InfluxDB2 or Prometheus to make a Grafana dashboard",
+  "tipi_version": 2,
+  "version": "v2.1.3",
+  "source": "https://github.com/aceberg/WatchYourLAN",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1753864483,
+  "updated_at": 1753864483,
+  "dynamic_config": true,
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Timezone",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "placeholder": "Europe/Sofia",
+      "env_variable": "WATCHYOURLAN_TZ"
+    },
+    {
+      "type": "text",
+      "label": "Network Interface",
+      "max": 50,
+      "min": 3,
+      "required": false,
+      "placeholder": "enp1s0",
+      "env_variable": "WATCHYOURLAN_IFACES"
+    }
+  ]
+}

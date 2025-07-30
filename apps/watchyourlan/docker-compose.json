@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "name": "watchyourlan",
+      "image": "aceberg/watchyourlan:2.1.3",
+      "internalPort": 8840,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/socket/data",
+          "containerPath": "/data/WatchYourLAN",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "environment": {
+        "IFACES": "${WATCHYOURLAN_IFACES}",
+        "TZ": "${WATCHYOURLAN_TZ}"
+      },
+      "networkMode": "host"
+    }
+  ]
+}
