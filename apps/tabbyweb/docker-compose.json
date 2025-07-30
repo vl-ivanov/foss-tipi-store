@@ -4,7 +4,7 @@
       "name": "tabby",
       "image": "stz184/tabbyweb:28.07.2025",
       "environment": {
-        "DATABASE_URL": "mysql://tabbyuser:${TABBYWEB_DB_PASSWORD}@tabbyweb-db/tabby",
+        "DATABASE_URL": "mysql://root:${TABBYWEB_DB_PASSWORD}@tabbyweb-db/tabby",
         "PORT": "9090",
         "DEBUG": "False",
         "DOCKERIZE_ARGS": "\"-wait tcp://tabbyweb-db:3306 -timeout 60s\"",

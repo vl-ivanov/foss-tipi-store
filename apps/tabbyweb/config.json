@@ -85,7 +85,7 @@
       "label": "Database Password",
       "max": 50,
       "min": 3,
-      "required": false,
+      "required": true,
       "env_variable": "TABBYWEB_DB_PASSWORD"
     }
   ]
