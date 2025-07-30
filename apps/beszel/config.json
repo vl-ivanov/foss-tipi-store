@@ -1,0 +1,19 @@
+{
+  "name": "Beszel",
+  "id": "beszel",
+  "available": true,
+  "short_desc": "Beszel is a lightweight server monitoring platform that includes Docker statistics, historical data, and alert functions.",
+  "author": "henrygd",
+  "port": 8090,
+  "categories": ["utilities", "development"],
+  "description": "Beszel is a lightweight server monitoring platform that includes Docker statistics, historical data, and alert functions. It has a friendly web interface, simple configuration, and is ready to use out of the box. It supports automatic backup, multi-user, OAuth authentication, and API access.",
+  "tipi_version": 2,
+  "version": "v0.12.1",
+  "source": "https://github.com/henrygd/beszel",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1753877062,
+  "updated_at": 1753877062,
+  "dynamic_config": true,
+  "form_fields": []
+}
