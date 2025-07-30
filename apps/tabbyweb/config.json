@@ -1,0 +1,68 @@
+{
+  "name": "Tabby Web",
+  "id": "tabbyweb",
+  "available": true,
+  "short_desc": "This is the Tabby terminal, served as a web app. It also provides the config sync service for the Tabby app..",
+  "author": "Eugeny",
+  "port": 9090,
+  "categories": ["utilities", "development"],
+  "description": "Tabby Web serves the Tabby Terminal as a web application while managing multiple config files, authentication, and providing TCP connections via a separate gateway service.",
+  "tipi_version": 2,
+  "version": "v28.07.2025",
+  "source": "https://github.com/Eugeny/tabby-web",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1753864483,
+  "updated_at": 1753864483,
+  "dynamic_config": true,
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "GitHub OAuth Client ID",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "TABBYWEB_GITHUB_KEY"
+    },
+    {
+      "type": "password",
+      "label": "GitHub OAuth Client Secret",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "TABBYWEB_GITHUB_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "GitLab OAuth Client ID",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "TABBYWEB_GITLAB_KEY"
+    },
+    {
+      "type": "password",
+      "label": "GitLab OAuth Client Secret",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "TABBYWEB_GITLAB_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "Google OAuth Client ID",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "TABBYWEB_GOOGLE_OAUTH2_KEY"
+    },
+    {
+      "type": "password",
+      "label": "Google OAuth Client Secret",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "TABBYWEB_GOOGLE_OAUTH2_SECRET"
+    }
+  ]
+}

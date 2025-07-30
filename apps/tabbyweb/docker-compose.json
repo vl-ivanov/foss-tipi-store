@@ -1,0 +1,38 @@
+{
+  "services": [
+    {
+      "name": "tabby",
+      "image": "stz184/tabbyweb:28.07.2025",
+      "environment": {
+        "DATABASE_URL": "mysql://root:$$TABBYWEB_DB_PASSWORD@db/tabby",
+        "PORT": "9090",
+        "DEBUG": "False",
+        "DOCKERIZE_ARGS": "\"-wait tcp://db:3306 -timeout 60s\"",
+        "SOCIAL_AUTH_GITHUB_KEY": "${TABBYWEB_GITHUB_KEY:-}",
+        "SOCIAL_AUTH_GITHUB_SECRET": "${TABBYWEB_GITHUB_SECRET:-}",
+        "SOCIAL_AUTH_GITLAB_KEY": "${TABBYWEB_GITLAB_KEY:-}",
+        "SOCIAL_AUTH_GITLAB_SECRET": "${TABBYWEB_GITLAB_SECRET:-}",
+        "SOCIAL_AUTH_GOOGLE_OAUTH2_KEY": "${TABBYWEB_GOOGLE_OAUTH2_KEY:-}",
+        "SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET": "${TABBYWEB_GOOGLE_OAUTH2_SECRET:-}",
+        "SOCIAL_AUTH_MICROSOFT_GRAPH_KEY": "${TABBYWEB_MICROSOFT_GRAPH_KEY:-}",
+        "SOCIAL_AUTH_MICROSOFT_GRAPH_SECRET": "${TABBYWEB_MICROSOFT_GRAPH_SECRET:-}"
+      },
+      "internalPort": 9090,
+      "dependsOn": {
+        "db": {
+          "condition": "service_started"
+        }
+      }
+    },
+    {
+      "name": "db",
+      "image": "mariadb:10.7.1",
+      "environment": {
+        "MARIADB_DATABASE": "tabby",
+        "MARIADB_USER": "user",
+        "MARIADB_PASSWORD": "${TABBYWEB_DB_PASSWORD}",
+        "MYSQL_ROOT_PASSWORD": "${TABBYWEB_DB_PASSWORD}"
+      }
+    }
+  ]
+}
