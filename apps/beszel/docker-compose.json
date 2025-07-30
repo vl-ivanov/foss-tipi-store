@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "beszel",
-      "image": "henrygd/beszel:latest",
+      "image": "henrygd/beszel:0.12.1",
       "internalPort": 8090,
       "isMain": true,
       "volumes": [
@@ -24,7 +24,7 @@
     },
     {
       "name": "beszel-agent",
-      "image": "henrygd/beszel-agent:latest",
+      "image": "henrygd/beszel-agent:0.12.1",
       "environment": {
         "LISTEN": "/beszel_socket/beszel.sock",
         "HUB_URL": "http://localhost:${APP_PORT}",
