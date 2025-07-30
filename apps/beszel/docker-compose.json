@@ -1,0 +1,59 @@
+{
+  "services": [
+    {
+      "name": "beszel",
+      "image": "henrygd/beszel:latest",
+      "internalPort": 8090,
+      "volumes": [
+        {
+          "hostPath": "${RUNTIPI_APP_DATA_PATH}/socket/beszel_data",
+          "containerPath": "/beszel_data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${RUNTIPI_APP_DATA_PATH}/socket/beszel_socket",
+          "containerPath": "/beszel_socket",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ]
+    },
+    {
+      "name": "beszel-agent",
+      "image": "henrygd/beszel-agent:latest",
+      "environment": {
+        "LISTEN": "/beszel_socket/beszel.sock",
+        "HUB_URL": "http://${LOCAL_DOMAIN}:${APP_PORT}",
+        "TOKEN": "hjTDJBDZDDljOUbBMhdO",
+        "KEY": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHhPrH2XwmBRjheNX2HrlXy9HSN5KNLabbdJA8KqITSI"
+      },
+      "volumes": [
+        {
+          "hostPath": "${RUNTIPI_APP_DATA_PATH}/socket/beszel_agent_data",
+          "containerPath": "/var/lib/beszel-agent",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${RUNTIPI_APP_DATA_PATH}/socket/beszel_socket",
+          "containerPath": "/beszel_socket",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock",
+          "readOnly": true,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "networkMode": "host"
+    }
+  ]
+}
